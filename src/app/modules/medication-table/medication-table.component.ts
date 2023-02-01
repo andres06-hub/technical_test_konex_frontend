@@ -143,7 +143,7 @@ export class MedicationTableComponent implements OnInit {
       "Public Id",
       "Name",
       "Factory Laboratory",
-      "Date ManuFacture",
+      "ManuFacture Date",
       "Expiation Date",
       "Quantity Stock",
       "Unit Value"
@@ -160,7 +160,7 @@ export class MedicationTableComponent implements OnInit {
       "unitValue",
     ]
 
-  
+
 
   ngOnInit(): void {
     // this._medicinesSrv.getAllMedicines().subscribe({
