@@ -4,21 +4,20 @@
       sortMode="multiple" [tableStyle]="{'min-width': '60rem'}" [paginator]=" true" [rows]="10"
       [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-      [rowsPerPageOptions]="rowsPerPageOptions">
+      [rowsPerPageOptions]="rowsPerPageOptions" [globalFilterFields]="values">
       <!-- /Search -->
       <ng-template pTemplate="caption">
         <div class="flex">
           <span class="p-input-icon-left ml-auto">
             <i class="pi pi-search"></i>
-            <input pInputText type="text" (input)="dt2.filterGlobal($event.target, 'contains')"
-              placeholder="Search keyword" />
+            <input pInputText type="text" (input)="onInputFilter($event)" placeholder="Search keyword" />
           </span>
         </div>
       </ng-template>
       <!--  -->
       <ng-template pTemplate="header">
         <tr>
-          <th *ngFor="let field of fields">{{ field }}</th>
+          <th *ngFor="let field of fields">{{ field }} <p-sortIcon field="field"></p-sortIcon></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-obj pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">

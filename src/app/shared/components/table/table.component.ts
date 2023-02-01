@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Table } from 'primeng/table';
 import { Medicine, Sale } from 'src/app/models/data.interface';
 
 @Component({
@@ -17,6 +18,7 @@ export class TableComponent implements OnInit {
   @Input() data: Medicine[] | Sale[];
   @Input() fields: string[];
   @Input() values: string[];
+  @ViewChild(Table) table!: Table;
   rowsPerPageOptions = [5, 10, 50]
 
   ngOnInit(): void {
@@ -28,4 +30,8 @@ export class TableComponent implements OnInit {
     // });
   }
 
+  onInputFilter(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.table.filterGlobal(target.value, 'contains')
+  }
 }
