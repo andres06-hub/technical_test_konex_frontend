@@ -5,6 +5,7 @@ import { TableModule } from 'primeng/table';
 import { CartComponent } from './components/cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { InputTextModule } from 'primeng/inputtext';
     CommonModule,
     TableModule,
     InputTextModule,
-    RouterModule
+    ButtonModule,
+    RouterModule,
   ],
   exports: [
     TableComponent,

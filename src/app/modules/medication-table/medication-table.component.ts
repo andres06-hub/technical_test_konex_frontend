@@ -15,131 +15,10 @@ export class MedicationTableComponent implements OnInit {
   ) {
 
   }
-  medicines: Medicine[] = [
-    {
-      id: 454,
-      publicId: "jnccdj",
-      name: "advil",
-      factoryLaboratory: "dsds",
-      dateManufacture: 0,
-      expirationDate: 0,
-      quantityStock: 0,
-      unitValue: 0,
-    },
-    {
-      id: 785,
-      publicId: "sds",
-      name: "pfizer",
-      factoryLaboratory: "dwdw",
-      dateManufacture: 5,
-      expirationDate: 54,
-      quantityStock: 48,
-      unitValue: 895,
-    },
-        {
-      id: 454,
-      publicId: "jnccdj",
-      name: "advil",
-      factoryLaboratory: "dsds",
-      dateManufacture: 0,
-      expirationDate: 0,
-      quantityStock: 0,
-      unitValue: 0,
-    },
-    {
-      id: 785,
-      publicId: "sds",
-      name: "pfizer",
-      factoryLaboratory: "dwdw",
-      dateManufacture: 5,
-      expirationDate: 54,
-      quantityStock: 48,
-      unitValue: 895,
-    },
-    {
-      id: 454,
-      publicId: "jnccdj",
-      name: "advil",
-      factoryLaboratory: "dsds",
-      dateManufacture: 0,
-      expirationDate: 0,
-      quantityStock: 0,
-      unitValue: 0,
-    },
-    {
-      id: 785,
-      publicId: "sds",
-      name: "pfizer",
-      factoryLaboratory: "dwdw",
-      dateManufacture: 5,
-      expirationDate: 54,
-      quantityStock: 48,
-      unitValue: 895,
-    },
-    {
-      id: 454,
-      publicId: "jnccdj",
-      name: "advil",
-      factoryLaboratory: "dsds",
-      dateManufacture: 0,
-      expirationDate: 0,
-      quantityStock: 0,
-      unitValue: 0,
-    },
-    {
-      id: 785,
-      publicId: "sds",
-      name: "pfizer",
-      factoryLaboratory: "dwdw",
-      dateManufacture: 5,
-      expirationDate: 54,
-      quantityStock: 48,
-      unitValue: 895,
-    },
-        {
-      id: 454,
-      publicId: "jnccdj",
-      name: "advil",
-      factoryLaboratory: "dsds",
-      dateManufacture: 0,
-      expirationDate: 0,
-      quantityStock: 0,
-      unitValue: 0,
-    },
-    {
-      id: 785,
-      publicId: "sds",
-      name: "pfizer",
-      factoryLaboratory: "dwdw",
-      dateManufacture: 5,
-      expirationDate: 54,
-      quantityStock: 48,
-      unitValue: 895,
-    },
-        {
-      id: 454,
-      publicId: "jnccdj",
-      name: "advil",
-      factoryLaboratory: "dsds",
-      dateManufacture: 0,
-      expirationDate: 0,
-      quantityStock: 0,
-      unitValue: 0,
-    },
-    {
-      id: 785,
-      publicId: "sds",
-      name: "pfizer",
-      factoryLaboratory: "dwdw",
-      dateManufacture: 5,
-      expirationDate: 54,
-      quantityStock: 48,
-      unitValue: 895,
-    }
-  ]
+  medicines: Medicine[] = []
 
   fields: string[] = [
-      "Id",
+      // "Id",
       "Public Id",
       "Name",
       "Factory Laboratory",
@@ -150,7 +29,7 @@ export class MedicationTableComponent implements OnInit {
     ]
 
   values: string[] = [
-      "id",
+      // "id",
       "publicId",
       "name",
       "factoryLaboratory",
@@ -160,12 +39,10 @@ export class MedicationTableComponent implements OnInit {
       "unitValue",
     ]
 
-
-
   ngOnInit(): void {
-    // this._medicinesSrv.getAllMedicines().subscribe({
-    //   next: (data: ApiResponse<Medicine[]>) => this.medicines = data.data,
-    //   error: (err) => console.error(err.error.message),
-    // });
+    this._medicinesSrv.getAllMedicines().subscribe({
+      next: (data: ApiResponse<Medicine[]>) => this.medicines = data.data,
+      error: (err) => console.error(err.error.message),
+    });
   }
 }

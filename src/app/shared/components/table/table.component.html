@@ -17,13 +17,18 @@
       <!--  -->
       <ng-template pTemplate="header">
         <tr>
-          <th *ngFor="let field of fields">{{ field }} <p-sortIcon field="field"></p-sortIcon></th>
+          <th *ngFor="let zip of generatedFieldValues()" [pSortableColumn]="zip.value">{{ zip.field }} <p-sortIcon
+              [field]="zip.value"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-obj pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
         <tr class="tr-values">
-          <td class="td" *ngFor="let value of values">
+          <td class="td" *ngFor="let value of values" [pSortableColumn]="value">
             {{ obj[value] }}
+          </td>
+          <td *ngIf="valid">
+            <button pButton label="Sell" (click)="obtainDataForSale(obj)"></button>
           </td>
         </tr>
       </ng-template>

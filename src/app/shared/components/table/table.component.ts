@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { Medicine, Sale } from 'src/app/models/data.interface';
+import { MedicinesService } from 'src/app/modules/medication-table/service/medicines.service';
 
 @Component({
   selector: 'app-table',
@@ -9,16 +10,20 @@ import { Medicine, Sale } from 'src/app/models/data.interface';
 })
 export class TableComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private _medicineSrv: MedicinesService,
+  ) {
     this.fields = [];
     this.values = [];
     this.data = [];
+    this.valid = false;
   }
 
   @Input() data: Medicine[] | Sale[];
   @Input() fields: string[];
   @Input() values: string[];
   @ViewChild(Table) table!: Table;
+  @Input() valid: boolean;
   rowsPerPageOptions = [5, 10, 50]
 
   ngOnInit(): void {
@@ -29,9 +34,30 @@ export class TableComponent implements OnInit {
     //   this.values.push(value);
     // });
   }
+  generatedFieldValues() {
+    return this.fields.map((e, i) => {
+      return {
+        field: e,
+        value: this.values[i]
+      }
+    });
+  }
 
   onInputFilter(event: Event) {
     const target = event.target as HTMLInputElement;
     this.table.filterGlobal(target.value, 'contains')
+  }
+
+  obtainDataForSale(obj: Medicine | Sale) {
+    console.warn(obj);
+    let _obj;
+    if (obj.hasOwnProperty("factoryLaboratory")){
+      _obj = obj as Medicine;
+      this._medicineSrv.saleMedical(_obj, 4).subscribe(res => {
+        console.log(res);
+        const { msg } = res as any;
+        alert(msg);
+      });
+    }
   }
 }
