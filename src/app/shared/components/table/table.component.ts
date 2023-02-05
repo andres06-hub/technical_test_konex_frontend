@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
+import { MedicineTableService } from 'src/app/common/services/medicine-table.service';
 import { Medicine, Sale } from 'src/app/models/data.interface';
 import { MedicinesService } from 'src/app/modules/medication-table/service/medicines.service';
 
@@ -11,7 +12,7 @@ import { MedicinesService } from 'src/app/modules/medication-table/service/medic
 export class TableComponent implements OnInit {
 
   constructor(
-    private _medicineSrv: MedicinesService,
+    private _medicineSrv: MedicineTableService,
   ) {
     this.fields = [];
     this.values = [];
@@ -48,7 +49,7 @@ export class TableComponent implements OnInit {
     this.table.filterGlobal(target.value, 'contains')
   }
 
-  obtainDataForSale(obj: Medicine | Sale) {
+  getDataForSale(obj: Medicine | Sale) {
     console.warn(obj);
     let _obj;
     if (obj.hasOwnProperty("factoryLaboratory")){
@@ -59,5 +60,13 @@ export class TableComponent implements OnInit {
         alert(msg);
       });
     }
+  }
+
+  deleteMedicine(id: number) {
+    console.warn(id);
+  }
+
+  updateMedicine(obj: Medicine) {
+    console.warn(obj);
   }
 }
