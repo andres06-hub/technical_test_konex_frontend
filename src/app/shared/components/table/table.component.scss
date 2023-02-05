@@ -4,5 +4,13 @@ section{
   justify-content: center;
   div{
     width: 90%;
+
+    .container-btn{
+      display: flex;
+      button{
+        // color: black;
+        background-color: rgba(34, 110, 250, 0.795);
+      }
+    }
   }
 }
