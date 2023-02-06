@@ -15,7 +15,28 @@ export class MedicationTableComponent implements OnInit {
   ) {
 
   }
-  medicines: Medicine[] = []
+  medicines: Medicine[] = [
+    {
+      id: 5,
+      publicId: "485sd1",
+      name: "acetaminofen",
+      factoryLaboratory: "bayer",
+      dateManufacture: 16604587015,
+      expirationDate: 16054178125,
+      quantityStock: 45,
+      unitValue: 44.4
+    },
+    {
+      id: 7,
+      publicId: "sd5471d",
+      name: "acetaminofen",
+      factoryLaboratory: "invima",
+      dateManufacture: 16604587015,
+      expirationDate: 16054178125,
+      quantityStock: 20,
+      unitValue: 74.1
+    }
+  ]
 
   fields: string[] = [
       // "Id",
