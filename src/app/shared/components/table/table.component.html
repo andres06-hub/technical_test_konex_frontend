@@ -36,7 +36,7 @@
           </span>
           <section class="modal" *ngIf="modalVisible">
             <article>
-              <div>
+              <div class="content-modal">
                 <h2>Product Quantity</h2>
                 <p>Name: {{obj.name}}</p>
                 <p>Unit price: {{obj.unitValue}}</p>
@@ -48,6 +48,7 @@
               </div>
               <span>
                 <p-confirmPopup></p-confirmPopup>
+                <button pButton icon="pi pi-times" label="Cancel" (click)="modal(false)"></button>
                 <button pButton icon="pi pi-check" label="Ok" (click)="sellMedicine($event, obj, false)"></button>
               </span>
             </article>
