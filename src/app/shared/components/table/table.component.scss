@@ -15,7 +15,6 @@ section{
       display: flex;
       justify-content: center;
       align-items: center;
-      border: solid red 1px;
       position: fixed;
       top: 0;
       left: 0;
@@ -29,8 +28,11 @@ section{
         justify-content: center;
         align-items: center;
         background: #fff;
-        padding: 10px;
+        padding: 30px;
         border-radius: 8px;
+        .content-modal{
+          min-width: 15rem;
+        }
         .input-modal{
           margin: 5px;
           border: solid gray 1px;
