@@ -2,14 +2,50 @@ section{
   width: 100%;
   display: flex;
   justify-content: center;
-  div{
+  .div-container{
     width: 90%;
-
     .container-btn{
       display: flex;
       button{
-        // color: black;
+        // color: black ;
         background-color: rgba(34, 110, 250, 0.795);
+      }
+    }
+    .modal{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid red 1px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.432);
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+      article{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        .input-modal{
+          margin: 5px;
+          border: solid gray 1px;
+          border-radius: 7px;
+          padding: 0.5rem;
+          input{
+            text-align: center;
+            border: none;
+            outline: 1px;
+            border-radius: 4px;
+          }
+        }
+        button{
+          margin: 0.5rem;
+        }
       }
     }
   }
