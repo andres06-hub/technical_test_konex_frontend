@@ -90,9 +90,9 @@ export class TableComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         if (msg === 'Upgrade')
-          this.updateMedicine(obj);
+          return this.updateMedicine(obj);
         if (msg === 'Remove')
-          this.deleteMedicine(id);
+          return this.deleteMedicine(id);
       },
     });
   }
@@ -102,7 +102,8 @@ export class TableComponent implements OnInit {
     let _obj;
     if (obj.hasOwnProperty("factoryLaboratory")){
       _obj = obj as Medicine;
-      this._medicineSrv.saleMedical(_obj, this.unitTotal).subscribe(res => {
+      this._medicineSrv.saleMedical(_obj, this.unitTotal)
+      .subscribe(res => {
         console.log(res);
         const { msg } = res as any;
         alert(msg);
@@ -111,10 +112,18 @@ export class TableComponent implements OnInit {
   }
 
   deleteMedicine(id: number) {
-    this._medicineSrv.delMedicine(id);
+    this._medicineSrv.delMedicine(id)
+    .subscribe(res => {
+      const { msg } = res as any;
+      console.warn(msg);
+    });
   }
 
   updateMedicine(obj: Medicine) {
-    this._medicineSrv.putMedicine(obj);
+    this._medicineSrv.putMedicine(obj)
+    .subscribe(res => {
+      const { msg } = res as any;
+      console.log(msg);
+    });
   }
 }
