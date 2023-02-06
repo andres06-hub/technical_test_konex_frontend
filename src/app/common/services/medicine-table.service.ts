@@ -31,12 +31,19 @@ export class MedicineTableService {
 
   delMedicine(id: number) {
     console.warn(id);
+    return this._http.delete(API_HOST+'medicine/'+id);
   }
 
   putMedicine(obj: Medicine) {
-    const { id } = obj;
-    console.warn(id);
-
+    return this._http.put(API_HOST+'sale'+obj.id,{
+      "data": obj
+    },
+    {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+    }
+    );
   }
 
 }
